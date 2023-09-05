@@ -62,8 +62,17 @@ const ej = (nombre) => `Hola ${nombre}`
 //DEFINIMOS 1 OBJETO 
 //las llaves nos definen el AMBITO de un objeto, para una funciòn las llaves definen el CUERPO de la funcion
 const miObjeto = {};
-//
-let miArray = ["uno", "dos", "tres"];
+
+//Las propiedades de un objeto las definimos como CLAVE Y VALOR
+
+miObjeto = {
+    nombre : "NT2",
+    cuatrimestre : 2,
+    saludar: (nombre) => console.log('hola que tal ' + nombre); 
+}
+
+// Arrays
+const miArray = ["uno", "dos", "tres"];
 miArray.push("cuatro")
 console.log(miArray);
 
