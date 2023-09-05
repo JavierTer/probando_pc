@@ -61,18 +61,33 @@ const ej = (nombre) => `Hola ${nombre}`
 
 //DEFINIMOS 1 OBJETO 
 //las llaves nos definen el AMBITO de un objeto, para una funciòn las llaves definen el CUERPO de la funcion
-const miObjeto = {};
+//const miObjeto = {};
 
 //Las propiedades de un objeto las definimos como CLAVE Y VALOR
-
-miObjeto = {
-    nombre : "NT2",
+/*
+const miObjeto = {
+    materia : "NT2",
     cuatrimestre : 2,
-    saludar: (nombre) => console.log('hola que tal ' + nombre); 
+    saludar: (nombre) => `Bienvenido ${nombre} a ${materia}`
 }
+// console.log(miObjeto.saludar("Pepe")); //esto tira error porque con la notacion de las arrow function, no reconoce
+a materia dentro del ambito del objeto, entonces hay que cambiar la notacion de como escribimos la function. materia "dice no esta definido"
+el ambito en las funciones, cuando hacemos referencia a materia es como si pusieramos this.materia, y nosotros 
+nos queremos refereir al mismo ambito del objeto, LAS FUNCIONES ARROW NO TIENEN ESE AMBITO.
 
+*/
 // Arrays
 const miArray = ["uno", "dos", "tres"];
 miArray.push("cuatro")
 console.log(miArray);
 
+/*Para que reconozca el ambito del objeto, se debe usar esta notaciòn en las funciones.
+en este caso sigue siendo una funcion anonima, saludar es el nombre de una propiedad del objeto, 
+la funciòn en si no tiene nombre.*/
+const miObjeto2 = {
+    materia : "NT2",
+    cuatrimestre : 2,
+    saludar: function (nombre) {return `Bienvenido ${nombre} a ${this.materia}`}
+}
+
+console.log(miObjeto2.saludar("Pepe"))
