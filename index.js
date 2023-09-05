@@ -58,3 +58,12 @@ const ej = (nombre) => `Hola ${nombre}`
 //esto es una FUNCION ANONIMA , q se usa en ese momento especifico, x eso no interesa tenerla con nombre.
 
 //veo hasta el minuto 54:12
+
+//DEFINIMOS 1 OBJETO 
+//las llaves nos definen el AMBITO de un objeto, para una funciòn las llaves definen el CUERPO de la funcion
+const miObjeto = {};
+//
+let miArray = ["uno", "dos", "tres"];
+miArray.push("cuatro")
+console.log(miArray);
+
