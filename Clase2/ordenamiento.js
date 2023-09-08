@@ -38,4 +38,6 @@ miArray.pop () //elimina el ultimo
 miArray.shift()//elimina el 1ro
 miArray.unshift('e');
 
+//veo hasta 2:25
+
 
