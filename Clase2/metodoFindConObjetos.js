@@ -14,3 +14,7 @@ const personas = [
 const result= personas.find(persona => {return persona.nombre == "Pedro"});
 
 console.log('La personas es : ' + result.nombre);
+
+console.log(result);
+
+console.log(personas);

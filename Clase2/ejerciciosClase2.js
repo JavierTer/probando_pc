@@ -55,3 +55,69 @@ const verificarCondiciones = function (condiciones) {
 }
 
 verificarCondiciones(condiciones);
+
+console.log('*************** Ejercicio 2 ******************');
+
+/*4) Con el array de series, quiero eliminar un elemento segun su titulo sin modificar el array original.
+
+5) Con el array de series, devolver otro array formado por elementos de tipo "Nombre(estreno)". 
+
+6) hacer un metodo que reciba un array de strings y devuelva otro pasando todo a mayuscula. 
+const array = ["a", "b"]
+console.log(array.map(e=>e.toLocalUpperCase())); 
+
+7) dado el array de condiciones del ejercicio 2, devolver otro con el siguiente formato: "si el valor es true, pulgar arriba, sino pulgar abajo."
+*/
+
+const series = [
+    {
+        nombre : 'Sherlok Holmes',
+        estreno : 2010
+    },
+    {
+        nombre : 'The good doctor',
+        estreno : 2018
+    },
+    {
+        nombre : 'La ley de los audaces',
+        estreno : 2020
+    },
+    {
+        nombre : 'Otra vida',
+        estreno : 2021    
+    },
+    {
+        nombre : 'La niñera',
+        estreno : 1996
+    }
+    
+]
+
+const ordenarSeries = function (series,valor){
+    let seriesOrdenadas = [...series]
+    if(valor == '-'){
+        console.log(seriesOrdenadas.sort((a,b) => b.estreno - a.estreno));
+    }
+    else if(valor == '+'){
+        console.log(seriesOrdenadas.sort((a,b) => a.estreno - b.estreno));
+    }
+    else {
+        console.log('El valor ingresado es incorrecto');
+    }
+}
+
+//ordenarSeries(series, '+');
+
+function eliminarSerie(nombreSerie){
+    let seriesProvisorias = [...series]
+    let serieBusc = seriesProvisorias.find(e=>e.nombre == nombreSerie)
+    if(seriesProvisorias.find(e=>e.nombre == nombreSerie)){
+        seriesProvisorias.unshift(nombreSerie)
+        console.log(serieBusc);
+        console.log(seriesProvisorias);
+
+    }
+
+}
+
+eliminarSerie('La niñera')

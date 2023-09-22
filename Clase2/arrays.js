@@ -56,3 +56,7 @@ if(restultt){
 const resultadoFilter = miArray.filter(e => e == 3);
 console.log('resutlado de filter');
 console.log(resultadoFilter);
+console.log(miArray);
+//Como usamos find con 1 objeto.
+
+ 
