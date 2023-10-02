@@ -87,7 +87,7 @@ const series = [
         estreno : 2021    
     },
     {
-        nombre : 'La niñera',
+        nombre : 'La niniera',
         estreno : 1996
     }
     
@@ -110,14 +110,20 @@ const ordenarSeries = function (series,valor){
 
 function eliminarSerie(nombreSerie){
     let seriesProvisorias = [...series]
-    let serieBusc = seriesProvisorias.find(e=>e.nombre == nombreSerie)
-    if(seriesProvisorias.find(e=>e.nombre == nombreSerie)){
-        seriesProvisorias.unshift(nombreSerie)
-        console.log(serieBusc);
-        console.log(seriesProvisorias);
+    let serieBusc = seriesProvisorias.filter(e=>e.nombre != nombreSerie)
+    /*if(serieBusc.length < series.length){
+        //console.log(`esta es la serie buscada: ${serieBusc.nombre}`);
+       // console.log(seriesProvisorias);
+        console.log(`Estas son las series provisorias: ${seriesProvisorias.forEach(e=>console.log(e.nombre))}`);
 
     }
-
+*/
+    console.log(serieBusc);
+    console.log('Funciona!!!');
 }
 
-eliminarSerie('La niñera')
+eliminarSerie('La niniera')
+
+//miArray.forEach((elemento) => {console.log(elemento*2);})
+
+console.log(series);
