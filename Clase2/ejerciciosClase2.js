@@ -148,5 +148,18 @@ const mapearSeries = function (array){
 
 console.log(`Estas son las series mapeadas: ${mapearSeries(series)}`);
 
+/*
+6) hacer un metodo que reciba un array de strings y devuelva otro pasando todo a mayuscula. 
+const array = ["a", "b"]
+console.log(array.map(e=>e.toLocalUpperCase())); */
+const arrayLetras = ["a", "b", "c", "d", "e",];
+
+const pasarMayuscula = (array) => console.log([...array.map(e=>e.toUpperCase())]);
+
+//Test
+pasarMayuscula(arrayLetras);
+
+//No se modifica el array original
+console.log(`No se modifica el array orignal: ${arrayLetras}`);
 
 
