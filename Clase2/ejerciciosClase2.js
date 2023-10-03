@@ -123,5 +123,30 @@ function eliminarSerie(nombreSerie){
 eliminarSerie('La niniera')
 
 
+//5) Con el array de series, devolver otro array formado por elementos de tipo "Nombre(estreno)". 
+
+const mapearSeries = function (array){
+    //Resolucion en 1 linea.
+    console.log("--------------------------------------");
+    let seriesMapeadas = [...array.map(e=>`${e.nombre}(${e.estreno})`)];
+            //Test que demuestra que MAP MODIFICA el array orignal. 
+            /*
+            let seriesMapeadas = [...array];
+            console.log("las series copiadas tal cual es recibida como parametro, es una copia");
+            console.log(seriesMapeadas);
+            console.log("ahora las mapeo");
+            seriesMapeadas = [...array.map(e=>`${e.nombre}(${e.estreno})`)];
+            console.log("Muestro como quedan las series mapeadas, modificando el array");
+            console.log(seriesMapeadas);
+            console.log("y estas son las series originales sin modificarse, por eso fue necesario hacer la copia para no alterar el array original.");
+            console.log(array);
+            */
+            
+    
+    return seriesMapeadas;
+}
+
+console.log(`Estas son las series mapeadas: ${mapearSeries(series)}`);
+
 
 
