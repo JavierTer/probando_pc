@@ -152,7 +152,7 @@ console.log(`Estas son las series mapeadas: ${mapearSeries(series)}`);
 6) hacer un metodo que reciba un array de strings y devuelva otro pasando todo a mayuscula. 
 const array = ["a", "b"]
 console.log(array.map(e=>e.toLocalUpperCase())); */
-const arrayLetras = ["a", "b", "c", "d", "e",];
+const arrayLetras = ["a", "b", "c", "d", "e",]; 
 
 const pasarMayuscula = (array) => console.log([...array.map(e=>e.toUpperCase())]);
 
@@ -163,3 +163,17 @@ pasarMayuscula(arrayLetras);
 console.log(`No se modifica el array orignal: ${arrayLetras}`);
 
 
+
+
+//Como mutar un elemento de un foreach:
+/* La funciòn anonima que va dentro del foreach nos da para poner 3 posibles parametros.
+elemento -> es por el que iteramos
+indice
+array entero, aca dentro nosotros podriamos modificarlo.
+ejemplo:
+*/
+
+let arrayNumeros = [1,2,3,4,5];
+arrayNumeros.forEach((elemento, indice, array) => (array[indice] = elemento * 2))
+
+console.log(arrayNumeros);
