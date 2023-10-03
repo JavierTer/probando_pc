@@ -109,21 +109,19 @@ const ordenarSeries = function (series,valor){
 //ordenarSeries(series, '+');
 
 function eliminarSerie(nombreSerie){
-    let seriesProvisorias = [...series]
-    let serieBusc = seriesProvisorias.filter(e=>e.nombre != nombreSerie)
-    /*if(serieBusc.length < series.length){
-        //console.log(`esta es la serie buscada: ${serieBusc.nombre}`);
-       // console.log(seriesProvisorias);
-        console.log(`Estas son las series provisorias: ${seriesProvisorias.forEach(e=>console.log(e.nombre))}`);
-
+    let serieBusc = series.filter(e=>e.nombre != nombreSerie)
+    if(serieBusc.length > 0){
+        console.log(`   Se ha eliminado la serie: ${nombreSerie} \ 
+        Estas son las series que quedan disponibles:`); 
+        serieBusc.forEach(e=>console.log(`${e.nombre} -  ${e.estreno}`));
     }
-*/
-    console.log(serieBusc);
-    console.log('Funciona!!!');
+    else {
+        console.log(`No existe una serie con el nombre ${nombreSerie}`);
+    }
 }
 
 eliminarSerie('La niniera')
 
-//miArray.forEach((elemento) => {console.log(elemento*2);})
 
-console.log(series);
+
+
