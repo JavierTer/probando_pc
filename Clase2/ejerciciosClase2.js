@@ -108,6 +108,7 @@ const ordenarSeries = function (series,valor){
 
 //ordenarSeries(series, '+');
 
+/*Generamos 1 copia del array original sin el elemento que estamos buscando.*/
 function eliminarSerie(nombreSerie){
     let serieBusc = series.filter(e=>e.nombre != nombreSerie)
     if(serieBusc.length > 0){
@@ -164,7 +165,6 @@ console.log(`No se modifica el array orignal: ${arrayLetras}`);
 
 
 
-
 //Como mutar un elemento de un foreach:
 /* La funciòn anonima que va dentro del foreach nos da para poner 3 posibles parametros.
 elemento -> es por el que iteramos
@@ -177,3 +177,9 @@ let arrayNumeros = [1,2,3,4,5];
 arrayNumeros.forEach((elemento, indice, array) => (array[indice] = elemento * 2))
 
 console.log(arrayNumeros);
+
+//7) dado el array de condiciones del ejercicio 2, devolver otro con el siguiente formato: "si el valor es true, pulgar arriba, sino pulgar abajo."
+
+const nuevoArray = [...condiciones].map(e=>e.valor?("Y"):("N"))
+
+console.log(nuevoArray);
