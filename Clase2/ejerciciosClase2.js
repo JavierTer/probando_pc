@@ -179,7 +179,6 @@ arrayNumeros.forEach((elemento, indice, array) => (array[indice] = elemento * 2)
 console.log(arrayNumeros);
 
 //7) dado el array de condiciones del ejercicio 2, devolver otro con el siguiente formato: "si el valor es true, pulgar arriba, sino pulgar abajo."
-
 const nuevoArray = [...condiciones].map(e=>e.valor?("Y"):("N"))
 
 console.log(nuevoArray);
