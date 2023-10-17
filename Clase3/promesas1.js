@@ -7,8 +7,12 @@ console.log("*** probando promesas ***");
 
 function entregarComida(){
     const ensalada =  getEnsalada();
-    const hamburguesa =  getHamburguesa();
-    getBebida().then(resultadoBebida=>
+    getHamburguesa().then(resultadoHamburguesa =>
+      {
+        console.log(resultadoHamburguesa);
+      });
+    /*Este es el caso de como se resuelve una promesa (de forma completa), una forma de las cuales se puede hacer*/
+    getBebida().then( resultadoBebida =>
       {
         //console.log(`Este es su ${resultado}`)
         console.log(`Su pedido de: ${ensalada} , ${hamburguesa}  y ${resultadoBebida} esta listo`);
@@ -29,12 +33,11 @@ function getEnsalada(){
 }
 
 function getHamburguesa(){
-    let hamburguesa = 'Estamos preparando la hamburguesa';
-    setTimeout(() => {
-        hamburguesa = 'HAMBURGUESA'
-        console.log(hamburguesa);
-      }, 5000);
-    return hamburguesa;
+  return new Promise( (resolve, reject) => {
+    setTimeout( ()=> {
+      resolve('HamburguesAAA')
+    }, 5000)
+  })  
 }
 
 function getBebida() {
