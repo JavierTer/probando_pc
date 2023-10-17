@@ -8,9 +8,15 @@ console.log("*** probando promesas ***");
 function entregarComida(){
     const ensalada =  getEnsalada();
     const hamburguesa =  getHamburguesa();
-    const bebida =  getBebida();
+    getBebida().then(resultadoBebida=>
+      {
+        //console.log(`Este es su ${resultado}`)
+        console.log(`Su pedido de: ${ensalada} , ${hamburguesa}  y ${resultadoBebida} esta listo`);
 
-    console.log(`Su pedido de: ${ensalada} , ${hamburguesa}  y ${bebida} esta listo`);
+    }).catch(error=>{
+      console.log(error);
+    })
+
 }
 
 function getEnsalada(){
@@ -47,9 +53,10 @@ function getBebida() {
         //estas 2 cosas . 
         (resolve, reject) => {
             setTimeout(() => {
-                bebida = 'BEBIDA'
-                console.log(bebida);
-                resolve (bebida)
+                //bebida = 'BEBIDAA'
+                //console.log(bebida);
+                resolve ("BEBIDAAA")
+                reject('No pudimos conseguir la bebida')
               }, 2000);
         }
     );
