@@ -39,6 +39,7 @@ function getHamburguesa(){
     }, 5000)
   })  
 }
+//Otra manera de hacer una promesa es usar el resolve del objeto promise -> return Promise.resolve('algo')
 
 function getBebida() {
    /* let bebida = 'Estamos preparando la bebida';

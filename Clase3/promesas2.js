@@ -11,11 +11,14 @@ console.log("*** probando promesas ***");
 
 /*Se eliminan las palabras reservadas then y catch y se utiliza antes de la funcion la palabra AWAIT*/
 async function entregarComida(){
-    const ensalada =  await getEnsalada();
-    const hamburguesa = await getHamburguesa()
-    const bebida = await getBebida()
-   
-    console.log(`Su pedido de: ${ensalada} , ${hamburguesa}  y ${bebida} esta listo`);
+      
+      console.log('Estamos preparando su pedido');
+
+      const ensalada    =  await getEnsalada()
+      const hamburguesa =  await getHamburguesa();
+      const bebida      =  await getBebida();
+
+      console.log(`Su pedido de: ${ensalada} , ${hamburguesa}  y ${bebida} esta listo`);
 }
 
 
@@ -30,11 +33,13 @@ function getEnsalada(){
     }
 
 function getHamburguesa(){
-  return new Promise( (resolve, reject) => {
-    setTimeout( ()=> {
-      resolve('HamburguesAAA')
-    }, 5000)
-  })  
+    return new Promise( (resolve, reject) => {
+        setTimeout( ()=> {
+           resolve('HamburguesAAA'),
+           reject('No es posible realizar la hamburguesa')
+        },
+        5000);
+    })  
 }
 
  function getBebida() {
@@ -42,7 +47,7 @@ function getHamburguesa(){
     return new Promise(
         (resolve, reject) => {
             setTimeout(() => {
-                resolve ("BEBIDAAA")
+                resolve ("BEBIDAAA"),
                 reject('No pudimos conseguir la bebida')
               }, 2000);
         }
