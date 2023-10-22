@@ -4,28 +4,36 @@ en la version 2007 se introduce el concepto ASYNC - AWAIT.
 
 console.log("*** probando promesas ***");
 
-/**Tenenmos que hacer 1 funcion que va a entregar la comida 
+/** MANEJANDO PROMESAS
+ * Tenenmos que hacer 1 funcion que va a entregar la comida 
  * En esta funciòn vamos a traernos 3 cosas
  * Al final del metodo se va a imprimir con 1 log.
 */
 
-/*Se eliminan las palabras reservadas then y catch y se utiliza antes de la funcion la palabra AWAIT*/
+/*Se eliminan las palabras reservadas then y catch y se utiliza antes de la funcion la palabra AWAIT
+*/
 async function entregarComida(){
       
       console.log('Estamos preparando su pedido');
 
-      const ensalada    =  await getEnsalada();
-      const hamburguesa =  await getHamburguesa();
-      const bebida      =  await getBebida();
+      const ensalada    =   getEnsalada();
+      const hamburguesa =   getHamburguesa();
+      const bebida      =   getBebida();
 
-
-      console.log(`Su pedido de:  ${ensalada} , ${hamburguesa}  y ${bebida} esta listo`);
+      /*Promise.all --> recibe 1 array de promesas
+      La ultima promesa que se resuelve es justamente la del all
+      entonces sacamos los await de cada promesa en particular.
+      
+      */
+      const resultadoPromesas = await Promise.all([ensalada, hamburguesa, bebida])
+      
+      console.log(`Su pedido de:  ${resultadoPromesas[0]} , ${resultadoPromesas[1]}  y ${resultadoPromesas[2]} esta listo`);
 
 }
 
 
 //Las funciones que devuelven una promesa (que implementan una promesa) no es necesario ponerle async al principo. 
-function getEnsalada(){
+function getEnsalada() {
     return new Promise( 
       (resolve, reject) => 
           {
@@ -66,3 +74,4 @@ function getHamburguesa(){
 
 
 
+//fetch('url')
