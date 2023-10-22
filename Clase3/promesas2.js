@@ -14,31 +14,37 @@ async function entregarComida(){
       
       console.log('Estamos preparando su pedido');
 
-      const ensalada    =  await getEnsalada()
+      const ensalada    =  await getEnsalada();
       const hamburguesa =  await getHamburguesa();
       const bebida      =  await getBebida();
 
-      console.log(`Su pedido de: ${ensalada} , ${hamburguesa}  y ${bebida} esta listo`);
+
+      console.log(`Su pedido de:  ${ensalada} , ${hamburguesa}  y ${bebida} esta listo`);
+
 }
 
 
 //Las funciones que devuelven una promesa (que implementan una promesa) no es necesario ponerle async al principo. 
 function getEnsalada(){
-    return new Promise( (resolve, reject) => {
-        setTimeout( ()=> {
-          resolve('EnsaladAAA')
-          reject('No se pudo preparar la ensalada')
-        }, 5000)
-      })  
+    return new Promise( 
+      (resolve, reject) => 
+          {
+            setTimeout( ()=> 
+            {
+              resolve('ensalada')
+              reject('No se pudo preparar la ensalada')
+            }, 1000)
+          }
+      )  
     }
 
 function getHamburguesa(){
     return new Promise( (resolve, reject) => {
         setTimeout( ()=> {
-           resolve('HamburguesAAA'),
+           resolve('HamburguesAAA')
            reject('No es posible realizar la hamburguesa')
         },
-        5000);
+        2000)
     })  
 }
 
@@ -49,7 +55,7 @@ function getHamburguesa(){
             setTimeout(() => {
                 resolve ("BEBIDAAA"),
                 reject('No pudimos conseguir la bebida')
-              }, 2000);
+              }, 3000);
         }
     );
   }
