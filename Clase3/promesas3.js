@@ -1,33 +1,28 @@
-/* a partir de 1:32 NUEVA NOTACIÓN DE PROMESAS
-en la version 2007 se introduce el concepto ASYNC - AWAIT.
-*/
+
 
 console.log("*** probando promesas ***");
 
-/** MANEJANDO PROMESAS
- * Tenenmos que hacer 1 funcion que va a entregar la comida 
- * En esta funciòn vamos a traernos 3 cosas
- * Al final del metodo se va a imprimir con 1 log.
+ /*Desestructuramos el array de promesas
+    1- le debemos cambiar el nombre a las promesas en partticular para que se entienda
+    que lo que mandamos al promise.all son efectivamente promesas. 
+    2- desestructuramos el array de promesas.
+    a cada uno de los objetos los asignamos en 1 variable.
+    similar al spreed. nosotros sabemos que en el resultado 0 esta la ensalada. entonces le ponemos el nombre directamente y lo podemos usar como 1 variable.     
 */
 
-/*Se eliminan las palabras reservadas then y catch y se utiliza antes de la funcion la palabra AWAIT
-*/
 async function entregarComida(){
       
       console.log('Estamos preparando su pedido');
 
-      const ensalada    =   getEnsalada();
-      const hamburguesa =   getHamburguesa();
-      const bebida      =   getBebida();
+      const ensaladaPromise    =   getEnsalada();
+      const hamburguesaPromise =   getHamburguesa();
+      const bebidaPromise      =   getBebida();
 
-      /*Promise.all --> recibe 1 array de promesas
-      La ultima promesa que se resuelve es justamente la del all
-      entonces sacamos los await de cada promesa en particular.
+     //Se le saca el nombre a la variable y se pone directamente los valores con el nombre que queremos asignarle
+     //en este caso hay q tener cuidado de saber el orden de las cosas que vienen. de todas formas queda màs entendible el codigo xq se entiene que es 1 proemsa en si y q no.
+      const [ensalada, hamburguesa, bebida] = await Promise.all([ensaladaPromise, hamburguesaPromise, bebidaPromise])
       
-      */
-      const resultadoPromesas = await Promise.all([ensalada, hamburguesa, bebida])
-      
-      console.log(`Su pedido de:  ${resultadoPromesas[0]} , ${resultadoPromesas[1]}  y ${resultadoPromesas[2]} esta listo`);
+      console.log(`Su pedido de:  ${ensalada} , ${hamburguesa}  y ${bebida} esta listo`);
 
 }
 
