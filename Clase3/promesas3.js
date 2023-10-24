@@ -20,9 +20,9 @@ async function entregarComida(){
 
      //Se le saca el nombre a la variable y se pone directamente los valores con el nombre que queremos asignarle
      //en este caso hay q tener cuidado de saber el orden de las cosas que vienen. de todas formas queda màs entendible el codigo xq se entiene que es 1 proemsa en si y q no.
-      const [ensalada, hamburguesa, bebida] = await Promise.all([ensaladaPromise, hamburguesaPromise, bebidaPromise])
-      
-      console.log(`Su pedido de:  ${ensalada} , ${hamburguesa}  y ${bebida} esta listo`);
+     const [ensalada, hamburguesa, bebida] = await Promise.all([ensaladaPromise, hamburguesaPromise, bebidaPromise])
+     
+     console.log(`Su pedido de:  ${ensalada} , ${hamburguesa}  y ${bebida} esta listo`);
 
 }
 
