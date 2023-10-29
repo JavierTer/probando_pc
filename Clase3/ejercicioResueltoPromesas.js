@@ -12,7 +12,7 @@
  * App de competición
  */
  const competidores = ['juancito', 'pepito', 'cachito', 'jorge', 'carlos', 'javier', 'veronica', 'maria', 'mariela']
-
+// Paso 1
  async function inicio(competidores) {
      console.log('inicio...');
      const ganadores = cambios(competidores)
@@ -25,7 +25,44 @@
 
      }
  }
+
+  //Paso 2 
+  // Esta función recibe un array de Strings, genera una copia e itera esa copia, en la que a cada elemento lo pisa llamando a la función generarCorredor()
+  //Return : un array de objetos
+  const cambios = (competidores)=>{
+    const nuevo = [...competidores]
+    for (let i = 0; i < nuevo.length; i++) {
+        nuevo[i] = generarCorredor(nuevo[i])
+    }
+   
+return nuevo
+};
  
+
+//Paso 3
+  // Esta función recibe un String, declara una variable a la que le asigna un tiempo(expresado en miliseguandos) a través de la funcióin generarTiempo().
+  // Luego genera un objeto con el String recibido por parametro y el tiempo que retorna la función generarTiempo().
+    function generarCorredor(nombre){
+        const tiempo = generarTiempo()
+        corredor = {nombre: nombre, tiempo: tiempo}
+        //console.log(corredor);
+        return new Promise((resolve) => {
+            resolve(corredor)
+        })
+    }
+
+
+ //Paso 4
+    // Esta función retorna un número aleatorio entre 3 y 10 milisegundos.
+    function generarTiempo(){
+        let min = 3000;
+        let max = 10000;
+
+        let x = Math.floor(Math.random()*(max-min+1)+min);
+        return x
+    }
+
+
  function determinarGanador(array){
      const copia = [...array].sort((a,b)=> a.tiempo - b.tiempo);
      copia.forEach((corredor, indice) => {
@@ -40,34 +77,13 @@
      })
       
  }
- 
- const cambios = (competidores)=>{
-     const nuevo = [...competidores]
-     for (let i = 0; i < nuevo.length; i++) {
-         nuevo[i] = generarCorredor(nuevo[i])
-     }
-    
- return nuevo
- };
- 
- async function generarCorredor(nombre){
-   const tiempo = generarTiempo()
-   corredor = {nombre, tiempo}
-   console.log(corredor);
-   return new Promise((resolve) => {
-       resolve(corredor)
-   })
-}
+
  
 
  
- function generarTiempo(){
-     let min = 3000;
-     let max = 10000;
+
  
-     let x = Math.floor(Math.random()*(max-min+1)+min);
-     return x
- }
+
  
  console.log('---------------------------');
  
