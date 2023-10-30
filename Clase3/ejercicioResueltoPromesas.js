@@ -19,6 +19,7 @@
      try {
        let resultado = await Promise.all(ganadores);
        resultado = determinarGanador(resultado)
+       //console.log(resultado);
 
      } catch (error) {
        console.log(error);
@@ -46,8 +47,16 @@ return nuevo
         const tiempo = generarTiempo()
         corredor = {nombre: nombre, tiempo: tiempo}
         //console.log(corredor);
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             resolve(corredor)
+/*
+            if(corredor.tiempo > 5000) {
+                reject(`El corredor ${nombre} con tiempo ${tiempo} no clasificó a la siguiente etapa`)
+
+            }else {
+                resolve(corredor)
+
+            }*/
         })
     }
 
@@ -70,6 +79,7 @@ return nuevo
          if (indice <= 2) {
              console.log(`***** ¡¡¡ El corredor ${corredor.nombre.toUpperCase()} llego en la posición ${indice + 1} con un tiempo de ${corredor.tiempo} !!! ***** (${indice + 1})`);
          }
+        
          else{
              console.log(`El corredor ${corredor.nombre} llego en la posición ${indice + 1} con un tiempo de ${corredor.tiempo}`);
  
