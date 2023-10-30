@@ -8,10 +8,10 @@ Modificar la app para una maraton de 20 personas.
 
 En el caso de empate se devuelve cualquiera de los 2 (orden indistinto)
 * Investigar cmo generar un número random en Js. 
-
-
-
 */
+
+
+
 
 
 
@@ -51,14 +51,22 @@ async function final(competidores) {
 
     let resultado = await Promise.all([compe[0].tiempo, compe[1].tiempo, compe[2].tiempo])
     console.log(resultado);
- 
-/*4
+    
+   
+
+
     console.log(compe.sort( 
         (a,b) => b.tiempo - a.tiempo
-    ));*/
+    ));
 }
 
 final(competidores)
 
 
-//generarCompetidores(competidores)
+generarCompetidores(competidores)
+
+
+
+
+ 
+ 
