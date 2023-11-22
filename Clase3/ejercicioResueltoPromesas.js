@@ -46,7 +46,7 @@ return nuevo
   // Luego genera un objeto con el String recibido por parametro y el tiempo que retorna la función generarTiempo().
     function generarCorredor(nombre){
         const tiempo = generarTiempo()
-        corredor = {nombre: nombre, tiempo: tiempo}
+        corredor = {nombre, tiempo} // esta linea anteriormente la tenia corredor = {nombre: nombre, tiempo: tiempo} FUNCIONA IGUAL XQ LA CLAVE TIENE EL MISMO NOMBRE QUE VALOR, SI X EJ LLEGARA X PARAMETRO "CORREDOR" YA NO FUNCIONARIA
         //console.log(corredor);
         return new Promise((resolve, reject) => {
             resolve(corredor)
