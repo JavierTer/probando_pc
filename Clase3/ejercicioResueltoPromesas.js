@@ -20,7 +20,8 @@
        let resultado = await Promise.all(ganadores);
        resultado = determinarGanador(resultado)
        //console.log(resultado);
-
+        console.log('Estos son los competidores');
+        console.log(competidores);
      } catch (error) {
        console.log(error);
 
@@ -73,8 +74,9 @@ return nuevo
 
 
  function determinarGanador(array){
-     const copia = [...array].sort((a,b)=> a.tiempo - b.tiempo);
-     copia.forEach((corredor, indice) => {
+     //const copia = [...array].sort((a,b)=> a.tiempo - b.tiempo);
+     array.sort((a,b)=> a.tiempo - b.tiempo);
+     array.forEach((corredor, indice) => {
          console.log('---------------------------------------------------------------------------------------------------------');
          if (indice <= 2) {
              console.log(`***** ¡¡¡ El corredor ${corredor.nombre.toUpperCase()} llego en la posición ${indice + 1} con un tiempo de ${corredor.tiempo} !!! ***** (${indice + 1})`);
