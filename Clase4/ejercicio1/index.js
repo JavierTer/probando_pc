@@ -31,13 +31,12 @@ const series = [
 
 let a = document.getElementById("miId");
 let miTitulo = document.getElementById("titulo");
+let miFecha = document.getElementById("fecha");
+
 
 /*
-series.forEach(element => {
-    a.innerHTML= `<li> ${element.nombre} </li>`
-})
-
-
+document.createElement("li") // crea 1 elemento en el DOM pero no lo agrega todavia, esta en memoria x el momento
+document.appendChild(unNuevoElement) // sobre 1 elemento que ya tengamos referenciado del DOM podemos crear 1 elemento nuevo
 */
 
 const mostrar = ()=>{
@@ -69,5 +68,12 @@ function ordenar () {
     }
 } 
 
-mostrar()
+function ponerFechaYHora() {
+    let dato = new Date()
+    miFecha.innerHTML = new Date();
+    //miHora.innerHTML =  ` ${dato.getHours()}: ${dato.getMinutes()}` 
+	
+}
 
+mostrar()
+ponerFechaYHora()
