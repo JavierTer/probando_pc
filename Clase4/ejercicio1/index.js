@@ -1,4 +1,8 @@
-console.log('Hola aca estoy');
+
+/* Tomar el ejercicio de series y, en vez de imprimir por consola, alimentar un html con el array.
+Agregar un boton para mostrarlo de forma descendiente.
+*/
+
 let orden = 0;
 const series = [
     {
@@ -23,12 +27,10 @@ const series = [
     }
     
 ]
-/*
-let boton = document.getElementById("miBoton");
-boton.addEventListener('click', ordenar())
-*/
+
 
 let a = document.getElementById("miId");
+let miTitulo = document.getElementById("titulo");
 
 /*
 series.forEach(element => {
@@ -53,12 +55,14 @@ function ordenar () {
     if(orden == 0){
         series.sort((a,b) => a.estreno - b.estreno)
         orden = 1;
+        miTitulo.innerHTML = `Estas son tus series ordenadas en orden cronologico por año de estreno`
         a.innerHTML  = ``
         mostrar()
     }
     else {
         series.sort((a,b) => b.estreno - a.estreno)
         orden = 0;
+        miTitulo.innerHTML = `Estas son tus series ordenadas en forma descendente por año`
         a.innerHTML  = ``
         mostrar()
 
