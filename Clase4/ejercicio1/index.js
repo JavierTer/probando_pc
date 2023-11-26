@@ -2,7 +2,7 @@
 /* Tomar el ejercicio de series y, en vez de imprimir por consola, alimentar un html con el array.
 Agregar un boton para mostrarlo de forma descendiente.
 */
-
+let estado = "ordenar"
 let orden = 0;
 const series = [
     {
@@ -29,7 +29,7 @@ const series = [
     
     },
     {
-        nombre : 'La niniera',
+        nombre : 'La niñera',
         estreno : 1996,
         img: 'https://www.agendasalta.com.ar/public/images/noticias/6575-la-niniera-cumple-65-fue-abusada-sexualmente-lucho-contra-un-cancer-de-utero-y-su-marido-le-confeso-su-homosexualidad.webp'
 
@@ -54,8 +54,8 @@ const mostrar = ()=>{
         //console.log(element.nombre);
         //const li = document.createElement('li')
         //li.appendChild = `${element.nombre}`
-        a.innerHTML  += `<li> ${index + 1 } - ${element.nombre} -- estreno: ${element.estreno}</li>`;
-        a.innerHTML += `<img style="width: 300px; height: 300px;" src=${element.img}>`
+        a.innerHTML  += `<li style="margin: 20px; font-size: 1.5em"> ${index + 1 } - ${element.nombre} || estreno: ${element.estreno}</li>`
+        a.innerHTML += `<img style="width: 300px; height: 300px" src=${element.img}>`
     }
 }
 
@@ -87,11 +87,20 @@ function ponerFechaYHora() {
 
 
 function mover(obj){
-    obj.innerHTML = "ver en forma descendente"
+    if(orden == 0){
+        estado = "ver en orden cronológico"
+
+        obj.innerHTML = estado
+    } 
+    else{
+        estado = "ver en forma ascendente"
+        obj.innerHTML = estado
+
+    }
 }
 
 function mout(obj){
-    obj.innerHTML = "ver en forma ascendente"
+    obj.innerHTML = estado
 }
 
 
