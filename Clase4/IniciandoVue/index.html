@@ -12,7 +12,28 @@
 <body>
     <div id="app">Probando VUE
         <h1> {{ miTexto }} </h1>
+        <h3>{{ contador }} </h3>
+        <input type="text" v-model="nombreUsuario">
+        <button v-on:click="cambiarTexto" > Escriba su nombre</button>
+        <h5 v-if="miArray.length < 2 && miArray.length > 0" > Queda un elemento</h5>
+        <h4 v-if="miArray.length == 0 "> No hay elementos en la lista</h4>
+        <ul>
+            <li v-for="item in miArray" v-bind:key="item" > {{ item }}
+
+            </li>
+        </ul>
+
+        <button v-on:click="sacarUltimo" :disabled="miArray.length == 0">Remover ultimo item</button>
+       
+        <ul>
+            <li v-for="item in series" v-bind:key="item.id" :title=  " 'estreno: ' + item.estreno"  > 
+                {{ item.nombre }}
+            </li>
+        </ul>
+
+
     </div>
 </body>
 </html>
+
 <script src="app.js"></script>
