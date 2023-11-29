@@ -11,10 +11,36 @@ const myVue = new Vue({
             //un obj.
             
             texto: "Hola todos!", 
+            //hacemos 1 array vacio xq necesitaremos datos 
+            personas: [],
         }
     },
-    created(){
+    //Se le puede poner el async al "hook" created() , xq como necesitamos esperar la información 
+    //con el fetch, es necesario ponerle el async
+    async created(){
         console.log('Created...');
+        /*Fetch: es nativa de js.
+        Es un método dnd se le pasa una URL y esto (guardandolo en una constante) nos devuelve infor
+        macion.
+        siempre para arriba hay que ir haciendo el await - async cada vez qwue usamos una funcion
+        asincronica.
+        */
+       const result = await fetch("https://rickandmortyapi.com/api/character/1,2,3")
+       //la info finalmente la tenemos cuando a ese resultado, llamamos al método .json() que 
+       //convierte el resultado en un json.
+       //es decir el fetch, devuelve una promesa, y esa promesa cuando se resuleve, recien ahi, 
+       //hacemos un .json() que es OTRA PROMESA.
+       //si lo hacemos en una sola linea , no va a funcionar.
+
+
+       const data = await result.json()
+
+       //en este punto tenemos la información, pero falta 1 paso....
+       //vemos con log que hay en data
+       console.log(data);
+
+       this.personas = data;
+
     },
     mounted(){
         console.log('ahora este es el Mounted');

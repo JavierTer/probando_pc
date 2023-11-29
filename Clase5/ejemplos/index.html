@@ -12,7 +12,16 @@
 
        <span>Este es el texto: {{texto}}</span> 
 
-
+        <ul>
+            <li v-for="(item, index) in personas" :key="index">
+                 Nombre :  {{item.name}} 
+                 <div>
+                    Origen :  {{item.origin.name}} 
+                 </div>
+                    
+                 
+            </li>
+        </ul>
 
     </div>
 
