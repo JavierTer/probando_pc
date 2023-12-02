@@ -10,18 +10,45 @@
 <body>
     <div id="app">
 
-       <span>Este es el texto: {{texto}}</span> 
+       <span>{{texto}}</span> 
+        <h2>{{textoModificado}}</h2>
+        <h4>{{segundoTexto}}</h4>
 
+        <h3 v-if="!hayPersonas" >No hay personas para mostrar</h3>
         <ul>
-            <li v-for="(item, index) in personas" :key="index">
+            <li v-for="(item, index) in personas" 
+            :key="index"
+            :class="item.species.toLowerCase()"
+            :title="item.status"
+            >
                  Nombre :  {{item.name}} 
                  <div>
                     Origen :  {{item.origin.name}} 
+                    
+
                  </div>
-                  
+                 <div>
+                    Especie: {{item.species}} 
+
+                 </div>
+                  <hr>
                 
                  
             </li>
+        </ul>
+        <h3>solo son Aliens los siguientes personajes: </h3>
+            <ul>
+            <li v-for="(humano, index2) in humanos" 
+            :key="index2"
+            :title="humano.status"
+            >
+                 Nombre :  {{humano.name}} 
+                 
+                  <hr>
+                
+                 
+            </li>
+
         </ul>
 
     </div>
@@ -33,3 +60,12 @@
 <script src="app.js"></script>
 
 </html>
+
+<style>
+    .human {
+        color:blue
+    }
+    .alien {
+        color:red
+    }
+</style>

@@ -10,22 +10,46 @@ const myVue = new Vue({
             //data, se van a pisar entre componentes, entonces necesitamos una estructura que devuelva 
             //un obj.
             
-            texto: "Hola todos!", 
+            texto: "Rick and Morty!", 
             //hacemos 1 array vacio xq necesitaremos datos 
             personas: [],
         }
+    },
+    computed:{
+        /*se declara como 1 funcion pero dps se puede usar como 1 prop mas.
+        La computada solamente se "activa" solo si cambia algo de las propiedades que estamos usando.
+        en este caso si se cambia el texto lo hará.
+        
+        */
+        textoModificado(){
+            /*split convierte en 1 array todas las letras que tiene texto*/
+            console.log('ejecutando el computed');
+            return    this.texto.split('').reverse().join('').toUpperCase() 
+
+        },
+        segundoTexto(){
+           return this.textoModificado.split('').reverse().join('').toLowerCase() 
+        },
+        hayPersonas(){
+            return this.personas.length > 3
+        },
+        humanos(){
+            return this.personas.filter(e=> e.species  == "Alien")
+        }
+
     },
     //Se le puede poner el async al "hook" created() , xq como necesitamos esperar la información 
     //con el fetch, es necesario ponerle el async
     async created(){
         console.log('Created...');
+        const ids = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
         /*Fetch: es nativa de js.
         Es un método dnd se le pasa una URL y esto (guardandolo en una constante) nos devuelve infor
         macion.
         siempre para arriba hay que ir haciendo el await - async cada vez qwue usamos una funcion
         asincronica.
         */
-       const result = await fetch("https://rickandmortyapi.com/api/character/1,2,3")
+       const result = await fetch(`https://rickandmortyapi.com/api/character/${ids}`)
        //la info finalmente la tenemos cuando a ese resultado, llamamos al método .json() que 
        //convierte el resultado en un json.
        //es decir el fetch, devuelve una promesa, y esa promesa cuando se resuleve, recien ahi, 
@@ -49,3 +73,4 @@ const myVue = new Vue({
     }
 })
 
+//Veo hasta 1:35
