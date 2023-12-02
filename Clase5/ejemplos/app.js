@@ -32,14 +32,16 @@ const myVue = new Vue({
        //hacemos un .json() que es OTRA PROMESA.
        //si lo hacemos en una sola linea , no va a funcionar.
 
-
+        //el json lo que hace es que nosotros tengamos solo los datos del objeto y saca toda la otra info de los headers del request x ej.
        const data = await result.json()
 
        //en este punto tenemos la información, pero falta 1 paso....
        //vemos con log que hay en data
-       console.log(data);
+       console.log(data[0]);
 
+       /*Aca relacionamos los datos obtenidos de la api, con nuestro array personas.*/
        this.personas = data;
+       console.log(this.personas);
 
     },
     mounted(){
