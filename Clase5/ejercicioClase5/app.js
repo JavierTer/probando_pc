@@ -34,33 +34,11 @@ el: "#app",
 data: () => {
     return {
         criptomonedas: [],
-        texto: "Ejercicio",
-        //valorDeOrden: 1
+        texto: "Criptomonedas",
+        valorDeOrden: true
     }
 },
-computed: {
-   
-    
-},
-methods: { 
-    orderByName(){
-        //if (this.valorDeOrden == 0) {
-            console.log("se activo computed");
-            this.criptomonedas.sort((a,b) => a.name - b.name)
-            //this.valorDeOrden = 1;
-        //}
-        //return this.criptomonedas
 
-    },
-    orderByRank(){
-        //if (this.valorDeOrden == 1) {
-            console.log("se activo computed de rank");
-            this.criptomonedas.sort((a,b) => a.rank - b.rank)
-            //this.valorDeOrden = 0;
-        //}
-        //return this.criptomonedas
-    }
-},
 async created(){
     console.log("Paso por CREATED");
     const limite = 10;
@@ -72,6 +50,50 @@ async created(){
     console.log(this.criptomonedas);
 },
 mounted(){
+    console.log("soy mounted...");
+   
+    
+},
+computed: {
+    verificar() {
+        this.criptomonedas.map(e => {
+            if(e.changePercent24Hr > 1) {
+            e.changePercent24Hr = '⬆'
+        }else {
+            e.changePercent24Hr = '⬇'
+        }
+    })                
+    },
+    orden(){
+        if(this.valorDeOrden == true){
+            this.texto = `${this.texto}:"Ranking descendiente"`
+            
+            return this.criptomonedas.sort((a,b) => a.rank - b.rank);
 
+        }else {
+            this.texto = `${this.texto}:  "Ranking ascendente"`
+
+            return this.criptomonedas.sort((a,b) => b.rank - a.rank);
+
+        }
+    }
+},
+methods: { 
+    orderByName(){
+            this.texto = "Criptomonedas"   
+        console.log("ordenado por nombre");
+           this.texto = `${this.texto}: "Ordenado por Nombre"`
+           return this.criptomonedas.sort((a ,b) => a.name.localeCompare(b.name))
+
+            
+
+    },
+    orderByRank(){
+        this.texto = "Criptomonedas"
+        this.valorDeOrden = !this.valorDeOrden;
+        this.orden
+            console.log("ordenado por ranking");
+            console.log(this.criptomonedas[9].rank)
+    }
 }
 })

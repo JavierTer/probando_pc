@@ -9,7 +9,8 @@
 </head>
 <body>
     <div id="app">
-
+        <h4>            {{texto}} 
+        </h4>
         <button v-on:click="orderByRank" > 
             Ranking
         </button>
@@ -26,9 +27,12 @@
             >
             {{item.name}} 
             ({{item.symbol}}) 
+            {{item.changePercent24Hr>0?'⬆':'⬇'}} 
+
         </li>
         </ul>
 
+        
 
     </div>
 </body>
