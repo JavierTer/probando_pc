@@ -6,10 +6,10 @@ import TheWelcome from './components/TheWelcome.vue'
 <template>
   <div id="app">
     <header>
-      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+      <img alt="Vue logo" class="logo" src="./assets/manu.png" width="200" height="200" />
 
       <div class="wrapper">
-        <HelloWorld msg="You did it!" />
+        <HelloWorld msg="Hola Mundo!" />
       </div>
     </header>
 
